@@ -1,0 +1,4 @@
+FROM postgres:12.2  
+COPY db_scripts/1-init-DDL.sql /docker-entrypoint-initdb.d/
+COPY db_scripts/2-init-DML.sql /docker-entrypoint-initdb.d/
+COPY db_scripts/worldcitiesCSV.csv /docker-entrypoint-initdb.d/

@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile_create_db
+    image: postgres
+    container_name: postgres_custom_db
+    restart: always
+    environment:
+      POSTGRES_DB: map_places
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secret
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+volumes:
+  db-data:
+    name: postgres-myvolume
+    external: true
