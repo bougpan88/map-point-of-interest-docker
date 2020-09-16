@@ -1,8 +1,11 @@
 
+CREATE EXTENSION postgis;
+
+
 CREATE TABLE public.point_of_interest (                                                                                                                                              
 id bigint NOT NULL,                                                                                                                                                 
 city character varying(255) NOT NULL,  
-map_point point NOT NULL,                                                                                                                                                                                                                                            
+map_point geometry NOT NULL,                                                                                                                                                                                                                                            
 country character varying(255),                                                                                                                                           
 capital character varying(255),                                                                                                               
 population bigint,
