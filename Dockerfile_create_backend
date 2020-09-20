@@ -1,0 +1,4 @@
+FROM openjdk:8-jdk-alpine
+ARG JAR_FILE=spring_boot/*.jar
+COPY ${JAR_FILE} pointOfInterest.jar
+ENTRYPOINT ["java","-Dspring.config.additional-location=./spring_boot/config/application.yaml","-jar","/pointOfInterest.jar"]

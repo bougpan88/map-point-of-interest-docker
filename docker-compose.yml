@@ -16,6 +16,17 @@ services:
       - db-data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+  backend:
+    build:
+       context: .
+       dockerfile: Dockerfile_create_backend    
+    image: backend_spring_boot
+    container_name: backend_spring_boot
+    environment:
+      DATABASE_URL: jdbc:postgresql://192.168.99.100:5432/map_places
+    restart: always    
+    ports:
+      - "9595:9595" 
 volumes:
   db-data:
     name: postgres-myvolume
